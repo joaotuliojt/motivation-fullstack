@@ -1,6 +1,30 @@
 import * as React from "react";
-export const Button = () => {
+import { Slot } from "@radix-ui/react-slot";
+
+interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  asChild?: boolean;
+}
+
+export const Button = ({ asChild, className, ...rest }: ButtonProps) => {
+  const Comp = asChild ? Slot : "button";
   return (
-    <button className=" w-40 h-20 bg-indigo-800 text-zinc-50">Boop</button>
+    <Comp
+      className={`
+        bg-indigo-600 
+        px-8 py-4 
+        rounded 
+        uppercase 
+        font-sans 
+        text-white 
+        font-normal 
+        text-2xl
+        transition
+        relative
+        hover:brightness-75
+        cursor-pointer
+        ${className}
+      `}
+      {...rest}
+    />
   );
 };

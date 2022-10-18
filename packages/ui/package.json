@@ -18,5 +18,8 @@
     "tailwindcss": "^3.1.8",
     "tsconfig": "*",
     "typescript": "^4.5.2"
+  },
+  "dependencies": {
+    "@radix-ui/react-slot": "^1.0.1"
   }
 }
