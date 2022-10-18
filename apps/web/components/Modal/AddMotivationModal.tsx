@@ -19,7 +19,7 @@ export function AddMotivationModal() {
         </div>
         <div className="flex flex-col mt-8">
           <label htmlFor="motivation">Motivation</label>
-          <TextArea id="motivation" type="text" className="h-52" />
+          <TextArea id="motivation" className="h-52" />
         </div>
         <Button className="mt-12">Add motivation</Button>
       </form>
