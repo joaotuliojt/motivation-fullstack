@@ -1,9 +1,14 @@
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
+import { PencilSimple, TrashSimple } from "phosphor-react";
+import { useMemo } from "react";
+import { Button, IconButton } from "ui";
+import { useEditableMode } from "../contexts/EditableMode";
+import { IMotivation } from "../pages/motivations";
+import { EditMotivationModal } from "./Modal/EditMotivationModal";
 
 interface MotivationCardProps {
-  motivation: string;
-  author: string;
-  id: string;
+  motivation: IMotivation;
+  onMotivationSelect: (motivation: IMotivation) => void;
 }
 
 const QuoteIcon = () => {
@@ -25,26 +30,84 @@ const QuoteIcon = () => {
 };
 
 export function MotivationCard({
-  author,
-  id,
   motivation,
+  onMotivationSelect,
 }: MotivationCardProps) {
-  const variant = {
-    hidden: { opacity: 0 },
-    show: { opacity: 1 },
+  const { canEdit } = useEditableMode();
+
+  const containerVariant = useMemo(() => {
+    return {
+      hidden: { opacity: 0 },
+      show: { opacity: 1, transition: { delay: 1 } },
+    };
+  }, []);
+
+  const buttonsVariant = useMemo(() => {
+    return {
+      initial: {
+        y: ["-120%"],
+        transition: {
+          duration: 0.4,
+        },
+        opacity: 0,
+      },
+      show: {
+        y: "-50%",
+        opacity: 1,
+      },
+      exit: {
+        y: "-120%",
+        opacity: 0,
+        transition: {
+          duration: 0.2,
+        },
+      },
+    };
+  }, []);
+
+  const handleDeleteMotivation = (id: string) => {
+    alert("TODO");
+  };
+
+  const handleSelectMotivation = () => {
+    onMotivationSelect(motivation);
   };
 
   return (
-    <motion.div
-      key={id}
-      variants={variant}
-      className="relative bg-[#232328] w-max max-w-[50.875rem] m-auto p-[2.625rem] text-gray-50 font-sans rounded-lg"
-    >
-      <QuoteIcon />
-      <blockquote className="font-normal italic text-xl mb-6">
-        {motivation}
-      </blockquote>
-      <cite className="font-medium text-xl not-italic">{author}</cite>
-    </motion.div>
+    <>
+      <motion.div
+        key={motivation.id}
+        variants={containerVariant}
+        className="relative bg-[#232328] w-max max-w-[50.875rem] m-auto p-[2.625rem] text-gray-50 font-sans rounded-lg"
+      >
+        <AnimatePresence>
+          {canEdit ? (
+            <>
+              <motion.div
+                variants={buttonsVariant}
+                initial={"initial"}
+                animate={"show"}
+                exit={"exit"}
+                className="flex gap-3 absolute top-0 right-0"
+              >
+                <IconButton onClick={handleSelectMotivation}>
+                  <PencilSimple size={20} />
+                </IconButton>
+                <IconButton>
+                  <TrashSimple size={20} />
+                </IconButton>
+              </motion.div>
+            </>
+          ) : null}
+        </AnimatePresence>
+        <QuoteIcon />
+        <blockquote className="font-normal italic text-xl mb-6">
+          {motivation.phrase}
+        </blockquote>
+        <cite className="font-medium text-xl not-italic">
+          {motivation.author}
+        </cite>
+      </motion.div>
+    </>
   );
 }

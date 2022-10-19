@@ -1,18 +1,28 @@
-import { X, Pencil, Plus } from "phosphor-react";
+import { X, Pencil, Plus, List } from "phosphor-react";
 import { useState } from "react";
 import { Button } from "ui";
 import { AddMotivationModal } from "./Modal/AddMotivationModal";
+import { useEditableMode } from "../contexts/EditableMode";
 
-export function Menu() {
+interface MenuProps {
+  onOpenAddModal: () => void;
+}
+
+export function Menu({ onOpenAddModal }: MenuProps) {
   const [isOpen, setIsOpen] = useState(false);
 
   const handleToggleMenu = () => {
     setIsOpen(!isOpen);
   };
 
-  const handleEnableEdition = () => {};
+  const { canEdit, toggleCanEdit } = useEditableMode();
 
-  const handleAddMotivation = () => {};
+  const handleToggleEditMode = () => {
+    toggleCanEdit();
+  };
+  const handleOpenAddModal = () => {
+    onOpenAddModal();
+  };
 
   return (
     <div
@@ -33,15 +43,24 @@ export function Menu() {
       ${!isOpen && "h-16"}
       `}
     >
-      <AddMotivationModal />
       <Button
-        onClick={handleToggleMenu}
+        onClick={handleOpenAddModal}
+        className="rounded-full px-0 py-0 bg-none bg-transparent mb-7"
+      >
+        <Plus size={32} />
+      </Button>
+      <Button
+        onClick={handleToggleEditMode}
         className="rounded-full px-0 py-0 bg-none bg-transparent mb-6"
       >
-        <Pencil size={32} />
+        <Pencil size={32} color={canEdit ? "#4ADE80" : "#F9FAFB"} />
       </Button>
-      <Button onClick={handleToggleMenu} className="rounded-full px-4 py-4 ">
-        <X size={32} />
+      <Button
+        onClick={handleToggleMenu}
+        className="rounded-full px-4 py-4"
+        aria-label={isOpen ? "Fechar menu" : "Abrir menu"}
+      >
+        {!isOpen ? <List size={32} /> : <X size={32} />}
       </Button>
     </div>
   );
