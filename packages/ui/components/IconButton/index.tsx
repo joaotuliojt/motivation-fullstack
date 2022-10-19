@@ -5,14 +5,20 @@ interface ButtonProps extends SlotProps {
   asChild?: boolean;
 }
 
-export const Button = ({ asChild, className, ...rest }: ButtonProps) => {
+export const IconButton = ({ asChild, className, ...rest }: ButtonProps) => {
   const Comp = asChild ? Slot : "button";
   return (
     <Comp
       className={`
-        bg-indigo-600 
-        px-8 py-4 
-        rounded 
+        bg-indigo-600
+        max-w-[40px]
+        max-h-[40px]
+        min-w-[40px]
+        min-h-[40px]
+        flex
+        items-center
+        justify-center
+        rounded-full
         uppercase 
         font-sans 
         text-white 
