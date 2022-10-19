@@ -1,11 +1,11 @@
 import * as Dialog from "@radix-ui/react-dialog";
 import { XCircle } from "phosphor-react";
-import { ReactNode, useEffect, useState } from "react";
+import { ReactElement, useEffect, useState } from "react";
 
 interface DefaultProps {
   title: string;
-  trigger: ReactNode;
-  children: ReactNode;
+  trigger: ReactElement;
+  children: ReactElement;
 }
 
 export function Default({ title, trigger, children }: DefaultProps) {
