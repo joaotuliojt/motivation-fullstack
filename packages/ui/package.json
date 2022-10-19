@@ -12,8 +12,8 @@
     "lint": "TIMING=1 eslint \"**/*.ts*\""
   },
   "devDependencies": {
-    "@types/react": "^17.0.37",
-    "@types/react-dom": "^17.0.11",
+    "@types/react": "17.0.2",
+    "@types/react-dom": "17.0.2",
     "autoprefixer": "^10.4.12",
     "eslint": "^7.32.0",
     "eslint-config-custom": "*",
