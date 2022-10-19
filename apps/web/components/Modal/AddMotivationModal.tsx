@@ -1,17 +1,20 @@
+import { DialogProps } from "@radix-ui/react-dialog";
 import { Plus } from "phosphor-react";
 import { Button, Input, TextArea } from "ui";
+import { IMotivation } from "../../pages/motivations";
 import { Default } from "./Default";
 
-export function AddMotivationModal() {
+interface AddMotivationModalProps extends Partial<DialogProps> {
+  isOpen?: boolean;
+  motivation: IMotivation;
+}
+
+export function AddMotivationModal({
+  isOpen,
+  onOpenChange,
+}: AddMotivationModalProps) {
   return (
-    <Default
-      title="Add motivation"
-      trigger={
-        <button className="mb-8 text-[#F9FAFB]">
-          <Plus size={32} />
-        </button>
-      }
-    >
+    <Default title="Add motivation" isOpen={isOpen} onOpenChange={onOpenChange}>
       <form className="flex flex-col">
         <div className="flex flex-col">
           <label htmlFor="author">Author</label>
