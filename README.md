@@ -17,11 +17,11 @@
 - [x] Tailwind
 - [x] Radix
 - [x] Eslint
-- [x] Storybook
-- [x] Node
-- [x] GraphQL
-- [x] Relay
-- [x] Jest
+- [] Storybook
+- [] Node
+- [] GraphQL
+- [] Relay
+- [] Jest
 
 ### Apps and Packages
 
