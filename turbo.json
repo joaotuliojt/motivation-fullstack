@@ -5,6 +5,10 @@
       "dependsOn": ["^build"],
       "outputs": ["dist/**", ".next/**"]
     },
+    "api#build": {
+      "dependsOn": ["^build"],
+      "env": ["MONGO_URI"]
+    },
     "lint": {
       "outputs": []
     },
