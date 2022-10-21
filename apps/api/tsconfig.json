@@ -4,6 +4,7 @@
   "exclude": ["node_modules", "build", "dist"],
   "compilerOptions": {
     "outDir": "build",
-    "rootDir": "./src"
+    "rootDir": "./src",
+    "isolatedModules": false
   }
 }
