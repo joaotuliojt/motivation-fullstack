@@ -8,6 +8,7 @@
   "scripts": {
     "dev": "tsnd --respawn --transpile-only src/router.ts",
     "build": "npx tsc",
+    "start": "node ./build/router.js",
     "test": "jest"
   },
   "devDependencies": {
