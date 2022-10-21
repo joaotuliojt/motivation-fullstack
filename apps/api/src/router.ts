@@ -2,7 +2,7 @@ import { app } from './server'
 import { connectMongoDB } from "./database/mongo"
 
 async function startServer() {
-  const PORT = 3333;
+  const PORT = 4000;
 
   await connectMongoDB()
 
