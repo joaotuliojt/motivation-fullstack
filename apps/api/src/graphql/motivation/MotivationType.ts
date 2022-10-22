@@ -1,10 +1,12 @@
 import { GraphQLObjectType, GraphQLString } from 'graphql'
 import { globalIdField } from 'graphql-relay'
 import { connectionDefinitions } from 'graphql-relay/connection/connection'
+import { nodeInterface } from '../node/nodeInterface'
 
 const MotivationType = new GraphQLObjectType({
   name: "Motivation",
   description: "Motivation Type",
+  interfaces: [nodeInterface],
   fields: () => ({
     id: globalIdField("Motivation"),
     phrase: {

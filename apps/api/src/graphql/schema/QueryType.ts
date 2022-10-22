@@ -3,6 +3,7 @@ import { connectionArgs, connectionFromArray, fromGlobalId } from 'graphql-relay
 import MotivationType, { MotivationConnection, MotivationEdge } from '../motivation/MotivationType'
 
 import * as MotivationLoader from '../motivation/MotivationLoader'
+import { nodeField, nodesField } from '../node/nodeInterface'
 
 const QueryType = new GraphQLObjectType({
   name: "Query",
@@ -27,7 +28,9 @@ const QueryType = new GraphQLObjectType({
         const data = await MotivationLoader.getOne(fromGlobalId(id).id)
         return data
       }
-    }
+    },
+    node: nodeField,
+    nodes: nodesField
   })
 })
 
