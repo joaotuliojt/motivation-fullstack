@@ -1,4 +1,4 @@
-import { GraphQLID, GraphQLNonNull, GraphQLString } from 'graphql'
+import { GraphQLID, GraphQLString } from 'graphql'
 import { fromGlobalId, mutationWithClientMutationId, toGlobalId } from 'graphql-relay'
 import * as MotivationLoader from '../MotivationLoader'
 
