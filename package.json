@@ -12,7 +12,8 @@
     "lint": "turbo run lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "prepare": "husky install",
-    "commit": "git-cz"
+    "commit": "git-cz",
+    "test": "turbo run test"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.1.2",

@@ -18,10 +18,10 @@
 - [x] Radix
 - [x] Eslint
 - [] Storybook
-- [] Node
-- [] GraphQL
-- [] Relay
-- [] Jest
+- [x] Node
+- [x] GraphQL
+- [x] Relay
+- [x] Jest
 
 ### Apps and Packages
 

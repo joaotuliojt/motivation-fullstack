@@ -1,8 +1,9 @@
 import { app } from './server'
 import { connectMongoDB } from "./database/mongo"
+import { config } from './config';
 
 async function startServer() {
-  const PORT = 4000;
+  const PORT = config.API_PORT
 
   await connectMongoDB()
 
