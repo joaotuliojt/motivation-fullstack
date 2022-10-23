@@ -1,7 +1,6 @@
 import { X, Pencil, Plus, List } from "phosphor-react";
 import { useState } from "react";
 import { Button } from "ui";
-import { AddMotivationModal } from "./Modal/AddMotivationModal";
 import { useEditableMode } from "../contexts/EditableMode";
 
 interface MenuProps {

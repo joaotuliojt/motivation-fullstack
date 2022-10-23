@@ -1,10 +1,9 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { PencilSimple, TrashSimple } from "phosphor-react";
 import { useMemo } from "react";
-import { Button, IconButton } from "ui";
+import { IconButton } from "ui";
 import { useEditableMode } from "../contexts/EditableMode";
 import { IMotivation } from "../pages/motivations";
-import { EditMotivationModal } from "./Modal/EditMotivationModal";
 
 interface MotivationCardProps {
   motivation: IMotivation;
