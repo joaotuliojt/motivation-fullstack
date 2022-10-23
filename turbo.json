@@ -7,13 +7,16 @@
     },
     "api#build": {
       "dependsOn": ["^build"],
-      "env": ["MONGO_URI"]
+      "env": ["MONGO_URI", "API_PORT", "NODE_ENV"]
     },
     "lint": {
       "outputs": []
     },
     "dev": {
       "cache": false
+    },
+    "test": {
+      "outputs": []
     }
   }
 }
