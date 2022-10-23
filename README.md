@@ -17,7 +17,7 @@
 - [x] Tailwind
 - [x] Radix
 - [x] Eslint
-- [x] Storybook
+- [] Storybook
 - [x] Node
 - [x] GraphQL
 - [x] Relay

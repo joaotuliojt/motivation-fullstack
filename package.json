@@ -8,11 +8,12 @@
   ],
   "scripts": {
     "build": "turbo run build",
-    "dev": "turbo run dev --parallel",
+    "dev": "dotenv turbo run dev --parallel",
     "lint": "turbo run lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "prepare": "husky install",
-    "commit": "git-cz"
+    "commit": "git-cz",
+    "test": "turbo run test"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.1.2",
@@ -26,6 +27,8 @@
   "engines": {
     "node": ">=14.0.0"
   },
-  "dependencies": {},
+  "dependencies": {
+    "dotenv-cli": "^6.0.0"
+  },
   "packageManager": "yarn@1.22.19"
 }
