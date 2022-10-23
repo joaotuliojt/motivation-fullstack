@@ -9,6 +9,10 @@
       "dependsOn": ["^build"],
       "env": ["MONGO_URI", "API_PORT", "NODE_ENV"]
     },
+    "web#build": {
+      "dependsOn": ["^build"],
+      "env": ["API_URL"]
+    },
     "lint": {
       "outputs": []
     },

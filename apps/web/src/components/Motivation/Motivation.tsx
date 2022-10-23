@@ -2,8 +2,8 @@ import { AnimatePresence, motion } from "framer-motion";
 import { PencilSimple, TrashSimple } from "phosphor-react";
 import { useMemo } from "react";
 import { IconButton } from "ui";
-import { useEditableMode } from "../contexts/EditableMode";
-import { IMotivation } from "../pages/motivations";
+import { useEditableMode } from "../../contexts/EditableMode";
+import { IMotivation } from "../../pages/motivations";
 
 interface MotivationCardProps {
   motivation: IMotivation;
@@ -28,7 +28,7 @@ const QuoteIcon = () => {
   );
 };
 
-export function MotivationCard({
+export function Motivation({
   motivation,
   onMotivationSelect,
 }: MotivationCardProps) {
@@ -77,7 +77,7 @@ export function MotivationCard({
       <motion.div
         key={motivation.id}
         variants={containerVariant}
-        className="relative bg-[#232328] w-max max-w-[50.875rem] m-auto p-[2.625rem] text-gray-50 font-sans rounded-lg"
+        className="relative bg-[#232328] w-full max-w-[50.875rem] m-auto p-[2.625rem] text-gray-50 font-sans rounded-lg"
       >
         <AnimatePresence>
           {canEdit ? (
