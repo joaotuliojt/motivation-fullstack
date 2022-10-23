@@ -96,7 +96,7 @@ export function MotivationList({ query }: MotivationListProps) {
         animate="show"
         className="mt-[8.125rem] flex flex-col gap-20 mb-20"
       >
-        {motivations.edges ? (
+        {motivations?.edges ? (
           <>
             {motivations.edges.map((item) => (
               <Motivation
